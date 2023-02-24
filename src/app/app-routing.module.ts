@@ -19,6 +19,7 @@ import { RegisterComponent } from "./views/auth/register/register.component";
 import { IndexComponent } from "./views/index/index.component";
 import { LandingComponent } from "./views/landing/landing.component";
 import { ProfileComponent } from "./views/profile/profile.component";
+import { WalletComponent } from "./views/wallet/wallet.component";
 
 const routes: Routes = [
   // admin views
@@ -26,11 +27,11 @@ const routes: Routes = [
     path: "admin",
     component: AdminComponent,
     children: [
-      { path: "dashboard", component: DashboardComponent },
-      { path: "settings", component: SettingsComponent },
-      { path: "tables", component: TablesComponent },
-      { path: "maps", component: MapsComponent },
-      { path: "", redirectTo: "dashboard", pathMatch: "full" },
+      { path: "dashboard", component: DashboardComponent},
+      { path: "settings", component: SettingsComponent},
+      { path: "tables", component: TablesComponent},
+      { path: "maps", component: MapsComponent},
+      { path: "", redirectTo: "dashboard", pathMatch: "full"},
     ],
   },
   // auth views
@@ -38,16 +39,17 @@ const routes: Routes = [
     path: "auth",
     component: AuthComponent,
     children: [
-      { path: "login", component: LoginComponent },
-      { path: "register", component: RegisterComponent },
-      { path: "", redirectTo: "login", pathMatch: "full" },
+      { path: "login", component: LoginComponent},
+      { path: "register", component: RegisterComponent},
+      { path: "", redirectTo: "login", pathMatch: "full"},
     ],
   },
   // no layout views
-  { path: "profile", component: ProfileComponent },
-  { path: "landing", component: LandingComponent },
+  { path: "profile", component: ProfileComponent},
+  { path: "landing", component: LandingComponent},
   { path: "", component: IndexComponent },
-  { path: "**", redirectTo: "", pathMatch: "full" },
+  { path: "wallet", component: WalletComponent },
+  { path: "**", redirectTo: "", pathMatch: "full"},
 ];
 
 @NgModule({

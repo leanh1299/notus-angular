@@ -1,0 +1,17 @@
+<app-index-navbar></app-index-navbar>
+<section class="header relative pt-16 items-center flex h-screen max-h-860-px">
+  <div class="container mx-auto items-center flex flex-wrap">
+    <div class="w-full md:w-8/12 lg:w-6/12 xl:w-6/12 px-4">
+      <div>
+        <span class="text-lg font-bold" [class.hidden]="!showCardNumber">{{ cardNumber }}</span>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded" (click)="showCardNumber = !showCardNumber">
+          {{ showCardNumber ? 'Hide Card Number' : 'Show Card Number' }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <img class="absolute top-0 b-auto right-0 pt-16 sm:w-6/12 -mt-48 sm:mt-0 w-10/12 max-h-860-px"
+    src="assets/img/pattern_angular.png" alt="..." />
+</section>
+  <app-footer></app-footer>

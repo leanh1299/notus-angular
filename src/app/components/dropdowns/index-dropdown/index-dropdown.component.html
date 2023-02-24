@@ -4,7 +4,10 @@
   (click)="toggleDropdown($event)"
   #btnDropdownRef
 >
-  Demo Pages
+<i
+              class="text-blueGray-400 fas fa-file text-lg leading-lg mr-2"
+            ></i>
+  Hồ Sơ
 </a>
 <div
   class="bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
@@ -14,33 +17,36 @@
   <span
     class="text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
   >
-    Admin Layout
+    Thông tin Hồ sơ
   </span>
+  <!-- [routerLink]="['/admin/dashboard']" -->
+
   <a
-    [routerLink]="['/admin/dashboard']"
+  [routerLink]="['/profile']"
     class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
   >
-    Dashboard
+    Thông tin cá nhân
   </a>
+
   <a
-    [routerLink]="['/admin/settings']"
+  [routerLink]="['/admin/dashboard']"
     class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
   >
-    Settings
+    Lịch sử giao dịch
   </a>
   <a
-    [routerLink]="['/admin/tables']"
+    [routerLink]="['/admin/convenant']"
     class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
   >
-    Tables
+    Hợp đồng vay
   </a>
   <a
-    [routerLink]="['/admin/maps']"
+    [routerLink]="['/admin/login']"
     class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
   >
-    Maps
+    Đăng xuất
   </a>
-  <div class="h-0 mx-4 my-2 border border-solid border-blueGray-100"></div>
+  <!-- <div class="h-0 mx-4 my-2 border border-solid border-blueGray-100"></div>
   <span
     class="text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
   >
@@ -75,5 +81,5 @@
     class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
   >
     Profile
-  </a>
+  </a> -->
 </div>
