@@ -1,0 +1,60 @@
+<div class="flex flex-col space-y-6">
+  <h2 class="text-2xl font-bold text-center mb-4">Bước 1: Thông tin cá nhân</h2>
+  <div class="flex flex-col space-y-2">
+    <label class="font-medium" for="name">Họ và tên</label>
+    <input [(ngModel)]="personalInfo.name" type="text" id="name" name="name" class="border rounded-md px-3 py-2" />
+  </div>
+  <div class="flex flex-col space-y-2">
+    <label class="font-medium" for="dob">Ngày sinh</label>
+    <input [(ngModel)]="personalInfo.dob" type="date" id="dob" name="dob" class="border rounded-md px-3 py-2" />
+  </div>
+  <div class="flex flex-col space-y-2">
+    <label class="font-medium" for="phone">Số điện thoại</label>
+    <input [(ngModel)]="personalInfo.phone" type="text" id="phone" name="phone" class="border rounded-md px-3 py-2" />
+  </div>
+  <div class="flex flex-col space-y-2">
+    <label class="font-medium" for="email">Email</label>
+    <input [(ngModel)]="personalInfo.email" type="email" id="email" name="email" class="border rounded-md px-3 py-2" />
+  </div>
+  <div class="flex flex-col space-y-2">
+    <label class="font-medium" for="address">Địa chỉ</label>
+    <input [(ngModel)]="personalInfo.address" type="text" id="address" name="address" class="border rounded-md px-3 py-2" />
+  </div>
+  <div class="flex flex-col space-y-2">
+    <label class="font-medium" for="id">CCCD/CMT</label>
+    <input [(ngModel)]="personalInfo.idNumber" type="text" id="id" name="id" class="border rounded-md px-3 py-2" />
+  </div>
+  <div class="flex flex-col space-y-2">
+    <label class="font-medium" for="id-issue-date">Ngày cấp</label>
+    <input [(ngModel)]="personalInfo.idIssueDate" type="date" id="id-issue-date" name="id-issue-date" class="border rounded-md px-3 py-2" />
+  </div>
+  <div class="flex flex-col space-y-2">
+    <label class="font-medium" for="job">Công việc</label>
+    <input [(ngModel)]="personalInfo.job" type="text" id="job" name="job" class="border rounded-md px-3 py-2" />
+  </div>
+  <div class="flex flex-col space-y-2">
+    <label class="font-medium" for="gender">Giới tính</label>
+    <select [(ngModel)]="personalInfo.gender" id="gender" name="gender" class="border rounded-md px-3 py-2">
+      <option value="">Select an option</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select>
+  </div>
+  <div class="flex flex-col space-y-2">
+    <label class="font-medium" for="education">Học vấn</label>
+    <select [(ngModel)]="personalInfo.education" id="education" name="education" class="border rounded-md px-3 py-2">
+      <option value="">Select an option</option>
+      <option value="high-school">High School</option>
+      <option value="bachelor">Bachelor's Degree</option>
+      <option value="master">Master's Degree</option>
+      <option value="phd">PhD</option>
+      <option value="other">Other</option>
+    </select>
+    <div class="mt-8">
+      <button type="button" (click)="nextStep()" class="btn-primary mr-4">Tiếp tục</button>
+      <button type="button" (click)="backStep()" class="btn-secondary">Quay lại</button>
+    </div>
+  </div>
+  
+

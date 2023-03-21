@@ -23,25 +23,25 @@ export class CardStatsComponent implements OnInit {
   }
   private _statTitle = "350,897";
 
-  // The value must match one of up or down
-  @Input()
-  get statArrow(): string {
-    return this._statArrow;
-  }
-  set statArrow(statArrow: string) {
-    this._statArrow =
-      statArrow !== "down" && statArrow !== "up" ? "up" : statArrow;
-  }
-  private _statArrow = "up";
+  // // The value must match one of up or down
+  // @Input()
+  // get statArrow(): string {
+  //   return this._statArrow;
+  // }
+  // set statArrow(statArrow: string) {
+  //   this._statArrow =
+  //     statArrow !== "down" && statArrow !== "up" ? "up" : statArrow;
+  // }
+  // private _statArrow = "up";
 
-  @Input()
-  get statPercent(): string {
-    return this._statPercent;
-  }
-  set statPercent(statPercent: string) {
-    this._statPercent = statPercent === undefined ? "3.48" : statPercent;
-  }
-  private _statPercent = "3.48";
+  // @Input()
+  // get statPercent(): string {
+  //   return this._statPercent;
+  // }
+  // set statPercent(statPercent: string) {
+  //   this._statPercent = statPercent === undefined ? "3.48" : statPercent;
+  // }
+  // private _statPercent = "3.48";
 
   // can be any of the text color utilities
   // from tailwindcss

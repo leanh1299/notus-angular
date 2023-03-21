@@ -10,8 +10,7 @@ import { AuthComponent } from "./layouts/auth/auth.component";
 
 // admin views
 import { DashboardComponent } from "./views/admin/dashboard/dashboard.component";
-import { MapsComponent } from "./views/admin/maps/maps.component";
-import { SettingsComponent } from "./views/admin/settings/settings.component";
+import { SettingsComponent } from "./views/admin/profile/settings.component";
 import { TablesComponent } from "./views/admin/tables/tables.component";
 
 // auth views
@@ -20,7 +19,6 @@ import { RegisterComponent } from "./views/auth/register/register.component";
 
 // no layouts views
 import { IndexComponent } from "./views/index/index.component";
-import { LandingComponent } from "./views/landing/landing.component";
 import { ProfileComponent } from "./views/profile/profile.component";
 import { WalletComponent } from "./views/wallet/wallet.component";
 
@@ -41,13 +39,18 @@ import { FooterComponent } from "./components/footers/footer/footer.component";
 import { FooterSmallComponent } from "./components/footers/footer-small/footer-small.component";
 import { HeaderStatsComponent } from "./components/headers/header-stats/header-stats.component";
 import { IndexNavbarComponent } from "./components/navbars/index-navbar/index-navbar.component";
-import { MapExampleComponent } from "./components/maps/map-example/map-example.component";
 import { IndexDropdownComponent } from "./components/dropdowns/index-dropdown/index-dropdown.component";
 import { TableDropdownComponent } from "./components/dropdowns/table-dropdown/table-dropdown.component";
 import { PagesDropdownComponent } from "./components/dropdowns/pages-dropdown/pages-dropdown.component";
 import { NotificationDropdownComponent } from "./components/dropdowns/notification-dropdown/notification-dropdown.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user-dropdown.component";
+import { LoanComponent } from "./views/loan-register/loan-register.component";
+import { StepOneComponent } from "./components/loan-register-step/step-one/step-one.component";
+import { StepTwoComponent } from "./components/loan-register-step/step-two/step-two.component";
+import { StepThreeComponent } from "./components/loan-register-step/step-three/step-three.component";
+import { StepFourComponent } from "./components/loan-register-step/step-four/step-four.component";
+import { HeaderLoansComponent } from "./components/header-loans/header-loans.component";
 
 @NgModule({
   declarations: [
@@ -71,21 +74,24 @@ import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user
     CardStatsComponent, 
     CardTableComponent, 
     HeaderStatsComponent, 
-    MapExampleComponent, 
     AuthNavbarComponent, 
     AdminNavbarComponent, 
     IndexNavbarComponent, 
     AdminComponent, 
     AuthComponent, 
-    MapsComponent, 
     SettingsComponent, 
     TablesComponent, 
     LoginComponent, 
     RegisterComponent, 
     IndexComponent, 
-    LandingComponent, 
     ProfileComponent,
     WalletComponent,
+    LoanComponent,
+    StepOneComponent,
+    StepTwoComponent,
+    StepThreeComponent,
+    StepFourComponent,
+    HeaderLoansComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

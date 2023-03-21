@@ -1,0 +1,15 @@
+<app-index-navbar></app-index-navbar>
+<app-header-loans></app-header-loans>
+<div class="container mx-auto mt-10">
+  <div class="max-w-md mx-auto">
+    <app-step-one *ngIf="currentStep === 1" (nextStep)="nextStep()" (backStep)="backStep()"></app-step-one>
+    <app-step-two *ngIf="currentStep === 2" (backStep)="backStep()"></app-step-two>
+    <app-step-three *ngIf="currentStep === 3" (backStep)="backStep()"></app-step-three>
+    <app-step-four *ngIf="currentStep === 4" (backStep)="backStep()"></app-step-four>
+  </div>
+</div>
+
+
+<!-- </section> -->
+<!-- <app-footer></app-footer> -->
+<app-footer-admin></app-footer-admin>

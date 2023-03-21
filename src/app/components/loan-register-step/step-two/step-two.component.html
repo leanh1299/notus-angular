@@ -1,0 +1,27 @@
+<div *ngIf="currentStep === 2" class="mt-8">
+  <div class="text-xl font-medium">Ảnh chứng minh thư và ảnh cá nhân</div>
+  <div class="text-sm text-gray-500 mt-2">Vui lòng chụp và tải lên ảnh chứng minh thư và ảnh cá nhân của bạn</div>
+
+  <form class="mt-6">
+    <div class="mb-4">
+      <label for="id-card-photo" class="block text-gray-700 text-sm font-medium mb-2">Ảnh chứng minh thư:</label>
+      <input type="file" id="id-card-photo" accept="image/*" (change)="onIdCardPhotoChange($event)" class="form-input">
+      <div *ngIf="idCardPhotoPreviewUrl" class="mt-4">
+        <img [src]="idCardPhotoPreviewUrl" alt="Chứng minh thư" class="w-full max-w-sm">
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label for="selfie-photo" class="block text-gray-700 text-sm font-medium mb-2">Ảnh chụp cá nhân:</label>
+      <input type="file" id="selfie-photo" accept="image/*" (change)="onSelfiePhotoChange($event)" class="form-input">
+      <div *ngIf="selfiePhotoPreviewUrl" class="mt-4">
+        <img [src]="selfiePhotoPreviewUrl" alt="Ảnh chụp cá nhân" class="w-full max-w-sm">
+      </div>
+    </div>
+
+    <div class="mt-8">
+      <button type="button" (click)="nextStep()" class="btn-primary mr-4">Tiếp tục</button>
+      <button type="button" (click)="backStep()" class="btn-secondary">Quay lại</button>
+    </div>
+  </form>
+</div>

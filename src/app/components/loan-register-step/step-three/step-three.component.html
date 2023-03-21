@@ -1,0 +1,26 @@
+<div *ngIf="currentStep === 3" class="mt-8">
+  <div class="text-xl font-medium">Thông tin khoản vay</div>
+  <div class="text-sm text-gray-500 mt-2">Vui lòng chọn thông tin khoản vay của bạn</div>
+
+  <form class="mt-6">
+    <div class="mb-4">
+      <label for="loanAmount" class="block text-gray-700 text-sm font-medium mb-2">Số tiền muốn vay:</label>
+      <input type="number" id="loanAmount" class="form-input" placeholder="Nhập số tiền muốn vay" [(ngModel)]="loanAmount">
+    </div>
+
+    <div class="mb-4">
+      <label for="loanDuration" class="block text-gray-700 text-sm font-medium mb-2">Thời gian vay:</label>
+      <select id="loanDuration" class="form-select" [(ngModel)]="loanDuration">
+        <option value="3">3 tháng</option>
+        <option value="6">6 tháng</option>
+        <option value="9">9 tháng</option>
+        <option value="12">12 tháng</option>
+      </select>
+    </div>
+
+    <div class="mt-8">
+      <button type="button" (click)="submit()" class="btn-primary mr-4">Hoàn thành</button>
+      <button type="button" (click)="backStep()" class="btn-secondary">Quay lại</button>
+    </div>
+  </form>
+</div>
