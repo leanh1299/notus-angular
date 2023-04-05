@@ -28,7 +28,6 @@ import { AdminNavbarComponent } from "./components/navbars/admin-navbar/admin-na
 import { AuthNavbarComponent } from "./components/navbars/auth-navbar/auth-navbar.component";
 import { CardBarChartComponent } from "./components/cards/card-bar-chart/card-bar-chart.component";
 import { CardLineChartComponent } from "./components/cards/card-line-chart/card-line-chart.component";
-import { CardPageVisitsComponent } from "./components/cards/card-page-visits/card-page-visits.component";
 import { CardProfileComponent } from "./components/cards/card-profile/card-profile.component";
 import { CardSettingsComponent } from "./components/cards/card-settings/card-settings.component";
 import { CardSocialTrafficComponent } from "./components/cards/card-social-traffic/card-social-traffic.component";
@@ -51,6 +50,17 @@ import { StepTwoComponent } from "./components/loan-register-step/step-two/step-
 import { StepThreeComponent } from "./components/loan-register-step/step-three/step-three.component";
 import { StepFourComponent } from "./components/loan-register-step/step-four/step-four.component";
 import { HeaderLoansComponent } from "./components/header-loans/header-loans.component";
+import { CardTableHistoryComponent } from "./components/cards/card-table-history/card-table-history.component";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { JwtModule } from "@auth0/angular-jwt";
+import { TokenInterceptor } from './token-interceptor';
+import { AuthService } from './services/auth.service';
+import { ApiService } from './services/api.service';
+import { FormsModule } from "@angular/forms";
+
+export function tokenGetter() {
+  return localStorage.getItem('jwt');
+}
 
 @NgModule({
   declarations: [
@@ -67,12 +77,12 @@ import { HeaderLoansComponent } from "./components/header-loans/header-loans.com
     FooterComponent, 
     FooterSmallComponent, 
     FooterAdminComponent, 
-    CardPageVisitsComponent, 
     CardProfileComponent, 
     CardSettingsComponent, 
     CardSocialTrafficComponent, 
     CardStatsComponent, 
     CardTableComponent, 
+    CardTableHistoryComponent, 
     HeaderStatsComponent, 
     AuthNavbarComponent, 
     AdminNavbarComponent, 
@@ -93,8 +103,18 @@ import { HeaderLoansComponent } from "./components/header-loans/header-loans.com
     StepFourComponent,
     HeaderLoansComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule , JwtModule.forRoot({
+    config: {
+      tokenGetter: tokenGetter,
+      allowedDomains: ['your-api.com'],
+      disallowedRoutes: ['your-api.com/auth/login'],
+    },
+  })],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }, ApiService, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
