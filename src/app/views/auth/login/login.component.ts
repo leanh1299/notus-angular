@@ -12,18 +12,18 @@ export class LoginComponent implements OnInit {
 public username: string;
 public password: string;
 
-  constructor(, private authService: AuthService
+  constructor(private authService: AuthService
     , private router: Router) {}
 
   ngOnInit(): void {
-    if (this.authService.getToken()) {
-      this.router.navigate(['/home']);
-    }
+    // if (this.authService.isAuthenticated()) {
+    //   this.router.navigate(['/home']);
+    // }
 
   }
 
   login() {
-    this.authService.signIn(this.username, this.password).subscribe(
+    this.authService.signin(this.username, this.password).subscribe(
       res => {
         // Nếu đăng nhập thành công, chuyển hướng đến trang chủ
         this.router.navigate(['/home']);

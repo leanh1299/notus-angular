@@ -4421,3 +4421,12 @@ select {
     width: 1.5rem;
   }
 }
+
+.error {
+  font-size: 11px;
+  color: #FF0000;
+  margin-bottom: 15px;
+  float: left;
+  width: 100%;
+}
+

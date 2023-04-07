@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -26,19 +26,44 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
+  private getHeadersWithToken(): HttpHeaders {
+    const token = localStorage.getItem('jwt');
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`
+    });
+  }
   getUsers(): Observable<any> {
-      return this.http.get<any>(this.USER_INFOR, { observe: 'response', });
+    const headers = this.getHeadersWithToken();
+    return this.http.get<any>(this.USER_INFOR, { headers });
   }
 
-  register(username: string, password:string, phoneNumber: string, email: string): Observable<any> {
-    return this.http.post<any>(this.REGISTER,{username, password, phoneNumber, email}, { observe: 'response', });
-}
-
- 
-
+  register(tel: string, password: string): Observable<any> {
+    const headers = this.getHeadersWithToken();
+    return this.http.post<any>(this.REGISTER, { tel, password}, { headers });
+  }
 
 
+  public get(endpoint: string): Observable<any> {
+    const headers = this.getHeadersWithToken();
+    return this.http.get(`${this.baseUrl}/${endpoint}`, { headers });
+  }
 
+  public post(endpoint: string, body: any): Observable<any> {
+    const headers = this.getHeadersWithToken();
+    return this.http.post(`${this.baseUrl}/${endpoint}`, body, { headers });
+  }
+
+
+  public put(endpoint: string, body: any): Observable<any> {
+    const headers = this.getHeadersWithToken();
+    return this.http.put(`${this.baseUrl}/${endpoint}`, body, { headers });
+  }
+
+  public delete(endpoint: string): Observable<any> {
+    const headers = this.getHeadersWithToken();
+    return this.http.delete(`${this.baseUrl}/${endpoint}`, { headers });
+  }
 
 
   // sendData(message: string) {

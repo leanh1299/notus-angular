@@ -46,7 +46,7 @@ const routes: Routes = [
     ],
   },
   // ví 
-  { path: "", component: IndexComponent },
+  { path: "home", component: IndexComponent },
   { path: "wallet", component: WalletComponent },
   { path: "loan-register", component: LoanComponent },
   { path: "**", redirectTo: "", pathMatch: "full" },

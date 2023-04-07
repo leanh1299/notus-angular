@@ -51,16 +51,10 @@ import { StepThreeComponent } from "./components/loan-register-step/step-three/s
 import { StepFourComponent } from "./components/loan-register-step/step-four/step-four.component";
 import { HeaderLoansComponent } from "./components/header-loans/header-loans.component";
 import { CardTableHistoryComponent } from "./components/cards/card-table-history/card-table-history.component";
-import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
-import { JwtModule } from "@auth0/angular-jwt";
-import { TokenInterceptor } from './token-interceptor';
+import { HttpClientModule } from "@angular/common/http";
 import { AuthService } from './services/auth.service';
 import { ApiService } from './services/api.service';
 import { FormsModule } from "@angular/forms";
-
-export function tokenGetter() {
-  return localStorage.getItem('jwt');
-}
 
 @NgModule({
   declarations: [
@@ -103,18 +97,8 @@ export function tokenGetter() {
     StepFourComponent,
     HeaderLoansComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule , JwtModule.forRoot({
-    config: {
-      tokenGetter: tokenGetter,
-      allowedDomains: ['your-api.com'],
-      disallowedRoutes: ['your-api.com/auth/login'],
-    },
-  })],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptor,
-    multi: true
-  }, ApiService, AuthService],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule ],
+  providers: [ApiService, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
