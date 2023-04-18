@@ -12,29 +12,29 @@
     [ngClass]="dropdownPopoverShow ? 'block' : 'hidden'"
   >
     <a
-      href="#pablo"
+      href="/admin/installment?id={{userId}}"
       class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
     >
-      Action
+      Xem khoản vay
     </a>
     <a
-      href="#pablo"
+      href="/admin/profile?id={{userId}}"
       class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
     >
-      Another action
+     Xem thông tin cá nhân
     </a>
     <a
-      href="#pablo"
+      href="/admin/profile?id={{userId}}"
       class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
     >
-      Something else here
+      Sửa thông tin tài khoản
     </a>
     <div class="h-0 my-2 border border-solid border-blueGray-100"></div>
     <a
-      href="#pablo"
+      (click)="deleteUser(userId)"
       class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
     >
-      Seprated link
+      Xóa tài khoản
     </a>
   </div>
 </div>

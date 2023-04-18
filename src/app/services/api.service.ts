@@ -17,7 +17,7 @@ export class ApiService {
   private VERIFY_OTP = this.baseUrl + "api/v1/otp/verify-otp";
   private USER_INFOR = this.baseUrl + "user/me";
   private LOGIN = this.baseUrl + "user/signin";
-  private REGISTER = this.baseUrl + "user/signup";
+  private REGISTER = this.baseUrl + "/user/signup";
   // THIẾU 1 số api liên quan đến quyền / phân quyền và admin do chưa design
   private CREATE_LOAN = this.baseUrl + "user/create-loan";
   private CHECK_LOAN = this.baseUrl + "user/is-exist-loan";
@@ -39,8 +39,7 @@ export class ApiService {
   }
 
   register(tel: string, password: string): Observable<any> {
-    const headers = this.getHeadersWithToken();
-    return this.http.post<any>(this.REGISTER, { tel, password}, { headers });
+    return this.http.post<any>(this.REGISTER, { tel, password});
   }
 
 
@@ -64,6 +63,12 @@ export class ApiService {
     const headers = this.getHeadersWithToken();
     return this.http.delete(`${this.baseUrl}/${endpoint}`, { headers });
   }
+
+  public deleteUser(endpoint: string): Observable<any> {
+    const headers = this.getHeadersWithToken();
+    return this.http.delete(`${this.baseUrl}/${endpoint}`, { headers });
+  }
+
 
 
   // sendData(message: string) {

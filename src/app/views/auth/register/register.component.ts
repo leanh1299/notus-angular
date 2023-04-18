@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { Router } from "@angular/router";
 import { ApiService } from "src/app/services/api.service";
 
 @Component({
@@ -7,26 +7,39 @@ import { ApiService } from "src/app/services/api.service";
   templateUrl: "./register.component.html",
 })
 export class RegisterComponent implements OnInit {
-  @ViewChild('telephone') telephone: any;
-  @ViewChild('password') password: any;
-  @ViewChild('repassword') re_password: any;
+  @ViewChild('telephone', { static: false }) telephone: ElementRef;
+  @ViewChild('password', { static: false }) password: ElementRef;
+  @ViewChild('repassword', { static: false }) re_password: ElementRef;
   isChecked: boolean = false;
   isRegistered: boolean = false;
   errorMessage = '';
+  tel: string;
+  pwd: string;
+  repwd: string;
+  reinput: any;
 
   constructor(public apiService: ApiService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+    console.log(this.verifyPassword());
+    
+
+  }
 
   verifyPassword(): boolean {
-    const repassword = this.re_password.nativeElement.value;
-    const password = this.password.nativeElement.value;
+    const password = this.pwd;
+    const repassword = this.repwd;
     return password === repassword;
   }
 
   signUp() {
-    const tel = this.telephone.nativeElement.value;
-    const password = this.password.nativeElement.value;
+    const tel = this.tel;
+    const password = this.pwd;
+    console.log(this.verifyPassword());
+    if(!this.verifyPassword()){
+        this.reinput = true;
+    }
     this.apiService.register(tel, password).subscribe(
       response => {
         // Đăng ký thành công

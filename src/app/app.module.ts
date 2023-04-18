@@ -6,12 +6,13 @@ import { AppComponent } from "./app.component";
 
 // layouts
 import { AdminComponent } from "./layouts/admin/admin.component";
+import { UserComponent } from "./layouts/user/user.component";
 import { AuthComponent } from "./layouts/auth/auth.component";
 
 // admin views
 import { DashboardComponent } from "./views/admin/dashboard/dashboard.component";
-import { SettingsComponent } from "./views/admin/profile/settings.component";
-import { TablesComponent } from "./views/admin/tables/tables.component";
+import { SettingsComponent } from "./views/userDetail/profile/settings.component";
+import { TablesComponent } from "./views/userDetail/tables/tables.component";
 
 // auth views
 import { LoginComponent } from "./views/auth/login/login.component";
@@ -55,6 +56,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { AuthService } from './services/auth.service';
 import { ApiService } from './services/api.service';
 import { FormsModule } from "@angular/forms";
+import { CardPageVisitsComponent } from "./components/cards/card-page-visits/card-page-visits.component";
+import { HeaderAdminComponent } from "./components/headers/header-admin/header-admin.component";
 
 @NgModule({
   declarations: [
@@ -76,8 +79,10 @@ import { FormsModule } from "@angular/forms";
     CardSocialTrafficComponent, 
     CardStatsComponent, 
     CardTableComponent, 
+    CardPageVisitsComponent, 
     CardTableHistoryComponent, 
     HeaderStatsComponent, 
+    HeaderAdminComponent, 
     AuthNavbarComponent, 
     AdminNavbarComponent, 
     IndexNavbarComponent, 
@@ -96,6 +101,7 @@ import { FormsModule } from "@angular/forms";
     StepThreeComponent,
     StepFourComponent,
     HeaderLoansComponent,
+    UserComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule ],
   providers: [ApiService, AuthService],

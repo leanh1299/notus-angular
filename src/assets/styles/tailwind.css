@@ -710,6 +710,21 @@ select {
   display: inline !important;
 }
 
+.red_border {
+  border: 1rem solid rgb(255, 0, 0) !important;
+  background-image: url("/img/closex.svg");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  margin-bottom: 5px !important;
+  color: rgb(255, 0, 0);
+}
+
+.red_border_no_background {
+  border: 1rem solid rgb(255, 0, 0) !important;
+  margin-bottom: 5px !important;
+  background-image: none;
+}
+
 @media (min-width: 640px) {
   .container {
     max-width: 640px;
@@ -1123,20 +1138,7 @@ select {
   }
 }
 
-.red_border {
-  border: 1rem solid rgb(255, 0, 0) !important;
-  background-image: url("/img/closex.svg");
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-  margin-bottom: 5px !important;
-  color: rgb(255, 0, 0);
-}
 
-.red_border_no_background {
-  border: 1rem solid rgb(255, 0, 0) !important;
-  margin-bottom: 5px !important;
-  background-image: none;
-}
 
 
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {

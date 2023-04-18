@@ -26,7 +26,16 @@ public password: string;
     this.authService.signin(this.username, this.password).subscribe(
       res => {
         // Nếu đăng nhập thành công, chuyển hướng đến trang chủ
-        this.router.navigate(['/home']);
+        if(res){
+            this.router.navigate(['/home']);
+
+          // if(res.data.role == 'admin'){
+          //   this.router.navigate(['deatail/dashboard']);
+          // } else {
+          //   this.router.navigate(['/home']);
+          // }
+
+        }
       },
       error => {
         // Xử lý lỗi đăng nhập
